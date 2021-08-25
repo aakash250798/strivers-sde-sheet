@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    vector<int>a;
+    int n;
+    cin>>n;int t;
+    for(int i=0;i<n;i++){
+        cin>>t;
+        a.push_back(t);
+    }
+    int t1=0,t2=0;
+    int b[n+1]={0};
+    for(int i=0;i<n;i++){
+        b[a[i]]++;
+    }
+
+    for(int i=1;i<n+1;i++){
+        if(b[i]==2){
+           t1=i;
+            }
+            else if(b[i]==0){
+                t2=i;
+            }
+        }
+  
+    
+    cout<<"repeat-"<<t1<<endl<<"missing-"<<t2;
+
+    return 0;
+}
