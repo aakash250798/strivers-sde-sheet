@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    vector<int>a;
+    while(cin>>t){
+        a.push_back(t);
+    }
+    int n=a.size();int x=a[0];
+    for(int i=1;i<n;i++){
+        x=x^a[i];
+    }
+    for(int i=1;i<=n;i++){
+        x=x^i;
+    }
+    int y=(int)(log2(x));
+    y=pow(2,y);
+
+    vector<int>b,c;
+    for(int i=0;i<n;i++){
+        if(y&a[i]){
+            b.push_back(a[i]);
+        }
+        else
+            c.push_back(a[i]);
+    }
+    for(int i=1;i<=n;i++){
+        if(y&i){
+            b.push_back(i);
+        }
+        else{
+            c.push_back(i);
+        }
+    }
+    y=b[0];
+    for(int i=1;i<b.size();i++){
+        y=y^b[i];
+        
+    }cout<<"Missing-"<<y<<endl;
+    y=c[0];
+   for(int i=1;i<c.size();i++){
+    y=y^c[i];
+}
+   cout<<"Repeat -"<<y;
+    
+    
+    return 0;
+}
